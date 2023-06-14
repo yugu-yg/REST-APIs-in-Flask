@@ -1,4 +1,5 @@
 # REST-APIs-in-Flask
+![Python](https://img.shields.io/badge/Python-3.8-blueviolet)
 ![Framework](https://img.shields.io/badge/Framework-Flask-red)
 
 - This application creates demo REST APIs for an online marketplace using Flask. It provides CURD services for stores and items and use JWT for authorization. 
