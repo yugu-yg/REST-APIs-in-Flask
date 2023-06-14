@@ -1,7 +1,7 @@
 import os
 import secrets
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 
@@ -19,7 +19,7 @@ def create_app(db_url=None):
     app = Flask(__name__)
 
     app.config["PROPAGATE_EXCEPTIONS"] = True
-    app.config["API_TITLE"] = "Fla sk Stores REST API"
+    app.config["API_TITLE"] = "REST APIs for Online Stores in Flask"
     app.config["API_VERSION"] = "v1"
     app.config["OPENAPI_VERSION"] = "3.0.3"
     app.config["OPENAPI_URL_PREFIX"] = "/"
@@ -96,5 +96,9 @@ def create_app(db_url=None):
     api.register_blueprint(StoreBlueprint)
     api.register_blueprint(TagBlueprint)
     api.register_blueprint(UserBlueprint)
+
+    @app.route("/")
+    def index():
+        return redirect("/swagger-ui")
 
     return app
